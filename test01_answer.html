@@ -3,7 +3,7 @@
   <head>
     <title>JavaScript - A-Frame School</title>
     <meta name="description" content="JavaScript - A-Frame School">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
     <script>
       AFRAME.registerComponent('school-playground', {
         init: function () {
@@ -11,12 +11,13 @@
           var sceneEl = document.querySelector('a-scene'); 
           var boxEl = sceneEl.querySelector('a-box')
           
-          boxEl.addEventListener('foo', function () {
+          boxEl.addEventListener('change-color', function () {
             boxEl.setAttribute('color', 'blue');  
           });
-          // 動き始め直後にイベント発火(関数fooを実行)
-          boxEl.emit('foo');
-        }
+          // 2秒後にイベント発火
+          setTimeout(function () {
+            boxEl.emit('change-color');
+          }, 2000);        }
       });
     </script>
   </head>
